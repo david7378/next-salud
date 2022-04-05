@@ -18,7 +18,7 @@ export const ContextProvider = ({ children }) => {
   const router = useRouter();
 
   // LOADING TOGGLE
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // NO DATA MESSAGE
   const [noDataMsg, setNoDataMsg] = useState(false);

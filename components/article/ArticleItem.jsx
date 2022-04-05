@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { useAppContext } from "../../context/SaludProvider";
 
-const ArticleItem = ({ article, setId }) => {
+const ArticleItem = ({ article }) => {
   const { getArticle, setDataArticle } = useAppContext();
   const router = useRouter();
 

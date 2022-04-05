@@ -9,7 +9,7 @@ const SearchBar = ({searchTerm, setSearchTerm, handlekey, fetchData }) => {
           <input
             type="text"
             value={searchTerm}
-            className=" block w-full pr-72 p-2 sm:text-sm placeholder:pr-80 rounded-md placeholder:text-sm font-semibold placeholder:font-thin"
+            className=" block w-full pr-72 p-2 sm:text-sm placeholder:pr-80 rounded-md placeholder:text-sm"
             placeholder="Busca artículos de salud, recetas, tips y más..."
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={(e) => handlekey(e)}

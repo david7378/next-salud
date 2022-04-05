@@ -17,9 +17,9 @@ export default function Home() {
     invalidWord,
     loading,
   } = useAppContext();
-  console.log(dataArticles);
-  const title = "Articulos de salud"
 
+  // DATOS ESTATICOS PARA EL SEO
+  const title = "Articulos de salud"
   const description = "Vivir bien, tips de bienestar general, recetas saludables, ejercicios, fit"
 
   return (
