@@ -11,7 +11,7 @@ const InfoArticle = ({
 }) => {
   return (
     <>
-      <h1 className="text-4xl text-teal-600 font-bold ">{title}</h1>
+      <h1 className="sm:text-4xl text-2xl text-teal-600 font-bold ">{title}</h1>
 
       <div className="grid grid-cols-2  mt-6 mb-4 ">
         <div className=" inline-flex  text-xs font-bold text-teal-800 ">

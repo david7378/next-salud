@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-
 import { useAppContext } from "../../context/SaludProvider";
 
 const ArticleItem = ({ article }) => {
   const { getArticle, setDataArticle } = useAppContext();
   const router = useRouter();
 
+  // MUESTRA EL ARTICULO ELEGIDO
   const showArticle = async (id) => {
     try {
       const article = await getArticle(id);
@@ -24,7 +24,7 @@ const ArticleItem = ({ article }) => {
       <div
         key={article.id}
         onClick={() => showArticle(article.id)}
-        className="p-4  cursor-pointer pb-6 transition ease-in-out delay-350 hover:-translate-y-1 hover:scale-105 duration-200 shadow-lg border-2 rounded-sm hover:bg-blue-50"
+        className="p-2 sm:p-4 cursor-pointer pb-2 sm:pb-5 transition ease-in-out delay-350 hover:-translate-y-1 hover:scale-105 duration-200 shadow-lg border-2 rounded-sm hover:bg-blue-50"
       >
         <Image
           src={article.featured_media.large}

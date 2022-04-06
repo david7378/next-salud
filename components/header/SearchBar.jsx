@@ -1,15 +1,13 @@
-import React from "react";
-
-const SearchBar = ({searchTerm, setSearchTerm, handlekey, fetchData }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, handlekey, fetchData }) => {
   return (
     <>
       {/* BUSCADOR */}
-      <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-        <div className="mt-1 relative rounded-md shadow-sm">
+      <div className="order-3 mt-0 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+        <div className="mt-0 relative rounded-md shadow-sm">
           <input
             type="text"
             value={searchTerm}
-            className=" block w-full pr-72 p-2 sm:text-sm placeholder:pr-80 rounded-md placeholder:text-sm"
+            className=" block w-full sm:pr-72 p-2 sm:text-sm placeholder:pr-52 sm:placeholder:pr-72 rounded-md placeholder:text-sm"
             placeholder="Busca artículos de salud, recetas, tips y más..."
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={(e) => handlekey(e)}

@@ -24,7 +24,7 @@ export const ContextProvider = ({ children }) => {
   const [noDataMsg, setNoDataMsg] = useState(false);
   const [invalidWord, setInvalidWord] = useState("");
   const notify = () =>
-    toast.warn("Escribe al menos un dato...", {
+    toast.warn("El dato ingresado no es valido...", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
 
   // TRAE ARTICULOS RELEVANTES
   const fetchRelevantData = async (searchTerm) => {
-    if (searchTerm !== "") {
+    if (searchTerm.match(/^[\.a-zA-Z0-9_áéíóúñÑ,!? ]*$/) && searchTerm !== "") {
       setLoading(true);
       const res = await fetch(
         `https://beta.mejorconsalud.com/wp-json/mc/v3/posts?search=${searchTerm}&per_page=3&orderby=relevance`
@@ -45,18 +45,20 @@ export const ContextProvider = ({ children }) => {
       setDataArticles(relevanceData);
       setLoading(false);
     } else {
-      setMessage(true);
+      notify();
+      setToastMessage(true);
     }
   };
 
   // TRAE LOS ULTIMOS ARTICULOS MODIFICADOS
   const fetchData = async (searchTerm) => {
-    if (searchTerm !== "") {
+    if (searchTerm.match(/^[\.a-zA-Z0-9_áéíóúñÑ,!? ]*$/) && searchTerm !== "") {
       setLoading(true);
       const response = await fetch(
         `https://beta.mejorconsalud.com/wp-json/mc/v3/posts?search=${searchTerm}&per_page=3&orderby=modified`
       );
       const data = await response.json();
+      console.log(data);
       setDataArticles(data);
       setLoading(false);
 

@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 import DOMPurify from "isomorphic-dompurify";
 import { useAppContext } from "../context/SaludProvider";
@@ -33,21 +32,24 @@ const Articulos = () => {
   // PURIFICADOR HTML
   const cleanContent = DOMPurify.sanitize(content);
   const cleanBibliography = DOMPurify.sanitize(bibliography);
-  
 
   // FORMATEA FECHA DE ULTIMA MODIFICACION (ARTICULO)
-  const formatDate = new Date(modified ? modified : "2019-02-01T23:30:49+01:00");
-  formatDate
+  const formatDate = new Date(
+    modified ? modified : "2019-02-01T23:30:49+01:00"
+  );
+  formatDate;
   const options = { day: "numeric", month: "long", year: "numeric" };
   const modifiedDate = new Intl.DateTimeFormat("es-AR", options).format(
     formatDate
   );
 
+  // TOMA DATOS DINAMICOS PARA EL SEO
   let titleSeo = title;
   let descriptionSeo = excerpt;
+
   return (
     <Layout title={titleSeo} description={descriptionSeo}>
-      <div className="container mx-auto mt-6 mb-6 md:w-1/2">
+      <div className="container p-2 sm:p-0 mx-auto mt-0 sm:mt-2 mb-6 md:w-1/2">
         {/* Breadcrumb */}
         <Breadcrumb
           router={router}

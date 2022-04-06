@@ -6,6 +6,12 @@
   padding: 8px 0px 0px;
   font-family: sans-serif;
 }
+@media (max-width: 768px) {
+  .inner > h2 {
+    font-size: 22px;
+
+  }
+}
 
 .inner > h3 {
   margin: 16px 0;
@@ -14,13 +20,20 @@
   font-family: sans-serif;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .inner > h3 {
+    font-size: 18px;
+    
+  }
+}
 
 .inner > h4 {
   color: #0d9488;
+  font-weight: bold;
 }
 
 .inner strong {
-    color: #0d9488;
+  color: #0d9488;
 }
 
 .inner > p {
@@ -55,8 +68,8 @@
 }
 
 .inner a {
-    color: #636363;
-    font-weight: 500;
+  color: #636363;
+  font-weight: 500;
 }
 
 .bibliography > ul {
@@ -78,7 +91,7 @@
 
   color: #444;
   text-decoration: none;
-  
+
   transition: all 0.3s ease-out;
 }
 

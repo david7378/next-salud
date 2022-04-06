@@ -1,9 +1,8 @@
 import { ToastContainer } from "react-toastify";
 
-const EmptySearchBar = ({toastMessage}) => {
+const NoValidSearchData = ({ toastMessage }) => {
   return (
     <>
-    
       {toastMessage && (
         <ToastContainer
           position="top-right"
@@ -21,4 +20,4 @@ const EmptySearchBar = ({toastMessage}) => {
   );
 };
 
-export default EmptySearchBar;
+export default NoValidSearchData;

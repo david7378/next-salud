@@ -5,7 +5,6 @@ import { ContextProvider } from "../context/SaludProvider";
 function MyApp({ Component, pageProps }) {
   return (
     <ContextProvider>
-      {/* <Header /> */}
       <Component {...pageProps} />
     </ContextProvider>
   );

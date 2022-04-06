@@ -1,6 +1,4 @@
-import React from "react";
-
-const InterestTopic = ({related_links, number}) => {
+const InterestTopic = ({ related_links, number }) => {
   return (
     <>
       <div className="mt-4 p-4 bg-slate-100 hover:bg-slate-200 transition-colors rounded-xl w-full ">
@@ -22,7 +20,7 @@ const InterestTopic = ({related_links, number}) => {
             </svg>
           </span>
 
-          <div className="text-xl font-bold ml-1 align-middle text-teal-600">
+          <div className="text-normal sm:text-xl font-bold ml-1 align-middle text-teal-600">
             Te puede interesar:
             <a
               href={related_links ? related_links[number].link : 1}
@@ -30,7 +28,7 @@ const InterestTopic = ({related_links, number}) => {
               rel="noopener noreferrer"
             >
               {" "}
-              {related_links ?related_links[number].title : null}
+              {related_links ? related_links[number].title : null}
             </a>
           </div>
         </div>

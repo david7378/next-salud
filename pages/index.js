@@ -1,11 +1,18 @@
 import { useAppContext } from "../context/SaludProvider";
-import ArticleItem from "../components/article/ArticleItem.jsx";
+
 import ReactPaginate from "react-paginate";
-import Loading from "../components/alerts/Loading";
-import Dropdown from "../components/article/Dropdown";
-import FailSearch from "../components/alerts/FailSearch";
 import EmptyList from "../components/alerts/EmptyList";
 import Layout from "../components/layout/Layout";
+import ArticlesBar from "../components/article/ArticlesBar";
+import dynamic from "next/dynamic";
+
+
+// DYNAMIC IMPORTS
+const ArticleItem = dynamic(() =>
+  import("../components/article/ArticleItem.jsx")
+);
+const Loading = dynamic(() => import("../components/alerts/Loading"));
+const FailSearch = dynamic(() => import("../components/alerts/FailSearch"));
 
 export default function Home() {
   const {
@@ -19,8 +26,9 @@ export default function Home() {
   } = useAppContext();
 
   // DATOS ESTATICOS PARA EL SEO
-  const title = "Articulos de salud"
-  const description = "Vivir bien, tips de bienestar general, recetas saludables, ejercicios, fit"
+  const title = "Articulos de salud";
+  const description =
+    "Vivir bien, tips de bienestar general, recetas saludables, ejercicios, fit";
 
   return (
     <Layout title={title} description={description}>
@@ -29,23 +37,17 @@ export default function Home() {
       ) : (
         <div className="container mx-auto  md:w-3/4 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  mt-4 ">
-            <div className="grid grid-rows-2 grid-flow-col gap-3">
-              <div>
-                <h2 className="col-start-1 col-end-4 text-3xl font-extrabold text-gray-500 ">
-                  LISTADO DE ARTICULOS
-                </h2>
-              </div>
-              {dataArticles && dataArticles.data.length > 0 && <Dropdown />}
-            </div>
+            <ArticlesBar dataArticles={dataArticles} />
 
             <div className="max-w-2xl mx-auto lg:max-w-none">
               {/* MENSAJE NO ENCONTRO LA BUSQUEDA */}
               <FailSearch noDataMsg={noDataMsg} invalidWord={invalidWord} />
+
               {/* MENSAJE LISTA ESTA VACIA*/}
               <EmptyList dataArticles={dataArticles} noDataMsg={noDataMsg} />
 
               {/* LISTADO DE ARTICULOS */}
-              <div className="mt-4 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-4">
+              <div className="mt-4 space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-4">
                 {dataArticles && dataArticles?.data.length > 0
                   ? dataArticles.data.map((article) => (
                       <ArticleItem
@@ -59,7 +61,7 @@ export default function Home() {
               </div>
 
               {/* PAGINACION DE LOS ARTICULOS*/}
-              <ul className="flex justify-center mt-10">
+              <ul className="flex justify-center sm:pb-4 mt-10">
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel="next >"
